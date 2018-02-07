@@ -13,6 +13,8 @@
     },
     "dnsNameForPublicIP": {
       "value": "GEN-UNIQUE"
-    }
+    },
+    "networkSecurityGroupName": {
+      "value": "GEN-UNIQUE"
   }
 }
