@@ -44,6 +44,9 @@
         "15.10",
         "16.04.0-LTS"
       ]
+    },
+    "networkSecurityGroupName": {
+      "type": "string"
     }
   },
   "variables": {
@@ -129,6 +132,29 @@
               "subnet": {
                 "id": "[variables('subnetRef')]"
               }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "[parameters('networkSecurityGroupName')]",
+      "type": "Microsoft.Network/networkSecurityGroups",
+      "apiVersion": "2017-06-01",
+      "location": "[resourceGroup().location]",
+      "properties": {
+        "securityRules": [
+          {
+            "name": "default-allow-ssh",
+            "properties": {
+              "priority": 1000,
+              "protocol": "TCP",
+              "access": "Allow",
+              "direction": "Inbound",
+              "sourceAddressPrefix": "*",
+              "sourcePortRange": "*",
+              "destinationAddressPrefix": "*",
+              "destinationPortRange": "22"
             }
           }
         ]
