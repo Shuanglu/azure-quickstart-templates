@@ -115,7 +115,7 @@
             "typeHandlerVersion": "1.8",
             "autoUpgradeMinorVersion": true,
             "settings": {
-                "commandToExecute": "powershell -ExecutionPolicy Unrestricted  -Command \"& {$modulePath=[Environment]::GetEnvironmentVariable('PSModulePath','Machine');$pathsToRemove=@('C:\\Program Files\\WindowsPowerShell\\Modules\\','C:\\Program Files\\WindowsPowerShell\\Modules');if ($modulePath) {$paths=@();$newModulePath='';foreach ($path in $modulePath.Split(';')){$path=$path.Trim('\\');if (!$paths.Contains($path)){if (!$pathsToRemove.Contains($path)) { $paths+=$path;$newModulePath+=$path;$newModulePath+='\\;';}}}$testPath = 'C:\Packages\Plugins\Microsoft.Powershell.DSC\2.76.0.0\DSCWork\PrepareSharePointServer.ps1.0\\;';$env:PSModulePath = $env:PSModulePath + $testPath[Environment]::SetEnvironmentVariable('PSModulePath',$newModulePath.Trim(';'),'Machine' );}}\""
+                "commandToExecute": "powershell -ExecutionPolicy Unrestricted  -Command \"& {$modulePath=[Environment]::GetEnvironmentVariable('PSModulePath','Machine');$pathsToRemove=@('C:\\Program Files\\WindowsPowerShell\\Modules\\','C:\\Program Files\\WindowsPowerShell\\Modules');if ($modulePath) {$paths=@();$newModulePath='';foreach ($path in $modulePath.Split(';')){$path=$path.Trim('\\');if (!$paths.Contains($path)){if (!$pathsToRemove.Contains($path)) { $paths+=$path;$newModulePath+=$path;$newModulePath+='\\;';}}}$testPath = 'C:\Packages\Plugins\Microsoft.Powershell.DSC\2.76.0.0\DSCWork\PrepareSharePointServer.ps1.0\\;';$env:PSModulePath = $env:PSModulePath + $testPath;[Environment]::SetEnvironmentVariable('PSModulePath',$newModulePath.Trim(';'),'Machine' );}}\""
             }
         }
     },
